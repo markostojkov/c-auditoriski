@@ -1,0 +1,105 @@
+#include <stdio.h>
+
+int main () {
+
+	// vasiot kod ovde
+    	
+    int a, b;
+    
+    scanf("%d %d" , &a, &b) ;
+    
+    printf ("a + b = %d\n", a + b);
+    printf ("a - b = %d\n", a - b);
+    printf ("a * b = %d\n", a * b);
+    printf ("a / b = %d\n", a / b);
+    printf ("a %% b = %d\n", a % b);
+    // kraj na vasiot kod 
+    return 0;
+}
+
+#include <stdio.h>
+
+int main () {
+
+	// vasiot kod ovde
+    	
+    float a, b;
+    
+    scanf("%f %f" , &a, &b) ;
+
+    printf ("%.2f", a / ((b/100.0) * (b/100.0)));
+
+    // kraj na vasiot kod 
+    return 0;
+}
+
+#include <stdio.h>
+
+int main () {
+
+	// vasiot kod ovde
+    	
+    int sekundi;
+    
+    scanf("%d", &sekundi);
+
+    printf ("%d sekundi se %d casovi, %d minuti i %d sekundi", 
+                                                              sekundi, 
+                                                              (sekundi / 3600), 
+                                                              (sekundi / 60) - (sekundi / 3600) * 60, 
+                                                              (sekundi % 60));
+
+    // kraj na vasiot kod 
+    return 0;
+}
+
+#include <stdio.h>
+
+int main () {
+
+	// vasiot kod ovde
+    	
+    int list[5];
+    
+    for(int i = 0; i < 5; i++){
+        scanf("%d", &list[i]);
+    }
+    float average;
+    for(int i = 0; i < 5; i++){
+        average = average + list[i];
+    }
+
+    printf("%.2f", average / 5);
+    // kraj na vasiot kod 
+    return 0;
+}
+
+
+#include <stdio.h>
+
+void kolicina(int suma_, int para, int *suma, int *suma_kol){
+    *suma_kol = (suma_ / para) * para;
+    *suma =  suma_ / para;
+}	
+
+int main () {
+
+	// vasiot kod ovde
+    	
+    int suma;
+    int pari[] = {5000, 1000, 500, 100, 50, 10, 5, 2, 1};
+    
+    scanf("%d", &suma);
+    
+    for(int i = 0; i < 9; i++){
+        int kol, suma_kol;
+        kolicina(suma, pari[i], &kol, &suma_kol);
+        printf("%d*%d\n", kol, pari[i]);
+        suma = suma - suma_kol;
+        
+    }
+    
+   
+    // kraj na vasiot kod 
+    return 0;
+}
