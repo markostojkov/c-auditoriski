@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+
+    char znak;
+    int zbir = 0, flag = 0, temp;
+    int brojac = 0;
+
+    while(znak != '!') {
+		brojac ++;
+        scanf("%c", &znak);
+        
+        if( flag == 1 ) {
+            if( isdigit(znak) ){
+            	zbir += (temp * 10) + (znak - '0');
+                flag = 0;
+                continue;
+            }
+            else{
+                zbir += temp;
+                flag = 0;
+                continue;
+            }
+        }
+
+        if(isdigit(znak)) {
+            flag = 1;
+            temp = znak - '0';
+        }
+    }
+
+    printf("%d", zbir);
+
+    return 0;
+}
