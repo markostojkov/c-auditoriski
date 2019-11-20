@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+
+	int a = 1250, b = 1500, edinica, desetka, product = 1, n, novaVrednost, counter= 0;
+
+	//scanf("%d %d", &a, &b);
+
+	for(int i = a; i < b; i++){
+
+		n = i;
+
+		edinica = n % 10;
+		n /= 10;
+		while(n >= 10){
+			product *= n % 10;
+			n/= 10;
+		}
+		desetka = n;
+
+		novaVrednost = (desetka * 10) + edinica;
+		if(product != 0 && product % novaVrednost == 0){
+			printf("%d -> (%d == %d * %d)\n",i, product, novaVrednost, product / novaVrednost);
+			counter++;
+		}
+		product = 1;
+
+	}
+	printf("%d\n", counter);
+	system("pause");
+
+	return 0;
+
+}
