@@ -1,0 +1,43 @@
+//C RESENIE
+#include <stdio.h>
+#include <stdlib.h>
+
+int rekurzija(int broj){
+
+	if(broj < 10)
+		return broj;
+	else{
+		if(rekurzija(broj % 10) > rekurzija((broj / 10) % 10))
+			return 1;
+		else
+			return 0;
+	}
+}
+
+
+int main(){
+
+	int broj;
+
+	scanf("%d", &broj);
+
+	printf("%d\n", rekurzija(broj));
+
+	system("pause");
+
+	return 0;
+
+}
+#PYTHON RESENIE
+def rekurzija(broj):
+	if broj < 10:
+		return broj
+	else:
+		if rekurzija(broj % 10) > rekurzija((broj / 10) % 10):
+			return 1
+		else:
+			return 0
+
+
+
+print(rekurzija(1234561))
