@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+//ne menuvaj!
+void wtf() {
+    FILE *f = fopen("input.txt", "w");
+    char c;
+    while((c = getchar()) != EOF) {
+        fputc(c, f);
+    }
+    fclose(f);
+}
+
+void bubbleSort(int *niza, int nizaLen){
+	
+    int temp;
+    
+    for(int i = 0; i < nizaLen; i++){
+        for(int j = i + 1; j < nizaLen; j++){
+            if(*(niza + i) > *(niza + j)){
+            	temp = *(niza + i);
+                *(niza + i) = *(niza + j);
+                *(niza + j) = temp;
+            }
+        }
+    }
+    
+    for(int i = 0; i < nizaLen; i++){
+    	printf("%d", *(niza + i));
+    }
+    
+}
+
+void cifri(char *red, int *niza, int *brojac){
+
+    int brojacNiza = 0;
+    
+    while(*red != '\0'){
+        if(isdigit(*red)){
+        	*(niza + brojacNiza) = *red - '0';
+            brojacNiza++;
+            *brojac++;
+        }
+        *red++;
+    }
+    printf("%d:", brojacNiza);
+    bubbleSort(niza, brojacNiza);
+	
+}
+
+int main() {
+    wtf();
+    
+	FILE *file = fopen("input.txt", "r");
+    
+    char red[100], znak;
+    int niza[100], brojac = 0;
+    
+    while(fgets(red, 100, file) != NULL){
+    	cifri(red, niza, &brojac);
+        printf("\n");
+    }
+    
+}
