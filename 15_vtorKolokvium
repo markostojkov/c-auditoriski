@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+// ne menuvaj ovde
+void wtf() {
+    FILE *f = fopen("podatoci.txt", "w");
+    char c;
+    while((c = getchar()) != '#') {
+        fputc(c, f);
+    }
+    fclose(f);
+}
+
+void podatoci(char *red, char *z1, char *z2){
+    
+    int flag = 0;
+    
+    while(*red != '\0'){
+    
+        if(*red == *z1&&flag == 0){
+        	flag = 1;
+        }
+        else if(*red == *z2){
+            return ;
+        }
+        else if(flag == 1){
+        	printf("%c", *red);
+        }
+        *red++;
+    }
+    
+}
+
+int main() {
+    wtf();
+    getchar();
+	
+	FILE *file = fopen("podatoci.txt", "r");    
+    
+    char z1, z2, red[80];
+    
+    scanf("%c %c", &z1, &z2);
+    
+    while(fgets(red, 80, file) != NULL){
+    	podatoci(red, &z1, &z2);
+        printf("\n");
+    }
+    
+    return 0;
+}
