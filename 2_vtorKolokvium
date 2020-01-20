@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+
+void caesar(char *string, int pomestuvanje){
+    if(*string == NULL){
+    	return ;
+    }
+    else if(isalpha(*string)){
+        if(isupper(*string))
+        	printf("%c", (*string + pomestuvanje - 65) % 26 + 65);        
+        else
+   			printf("%c", (*string + pomestuvanje - 97) % 26 + 97);
+    }
+    else{
+    	printf("%c", *string);
+    }    
+            caesar(++string, pomestuvanje);
+
+
+}
+
+int main(){
+
+    int n, x;
+    
+	char* string[80];
+    
+    scanf("%d %d", &n, &x);
+    
+    while(gets(string) != NULL){
+		caesar(string, x);
+        printf("\n");
+    }
+
+    
+	return 0;
+    
+}
